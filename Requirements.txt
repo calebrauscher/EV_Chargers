@@ -1,0 +1,61 @@
+DESCRIPTION:
+
+The visualization of the EV chargers to EV registrations uses a Jupyter Notebook to generate a fully interactive html file that can be viewed in Chrome, Edge, or other modern browsers.
+
+INSTALLATION:
+
+The visualization can be viewed by simply opening ev_chargers.html in your browsers of choice. It will take a few seconds to full load as it is a large file.
+
+To run the code and generate the html file yourself the following requirements will need to be met.
+
+1. Python 3.x installed (tested using Python 3.9) [https://www.python.org/downloads/]
+2. Jupyter Notebook installed. [https://docs.jupyter.org/en/latest/install/notebook-classic.html]
+3. geopandas [https://geopandas.org/en/stable/getting_started.html]
+4. pandas [https://pandas.pydata.org/docs/getting_started/install.html]
+5. numpy [https://numpy.org/install/]
+6. bokeh [https://docs.bokeh.org/en/latest/docs/first_steps/installation.html]
+
+EXECUTION:
+
+Open ev_chargers.html in any browser. Hovering over any zip code will show:
+
+1. Zip Code
+2. EV Charger Ratio. NOTE: EV ratio of -1 indicates EVs registered in the zip code but no chargers in the zip code.
+3. Number of EV registrations
+4. Number of Level 1 chargers.
+5. Number of Level 2 chargers
+6. Number of DC Fast chargers
+
+The following tools are located in the bottom right corner:
+1. Pan: Selecting this tool then clicking a location on the map to drag will move the map. The map can be moved to view Alaska, Hawaii, or Puerto Rico.
+2. Box Zoom: You can draw a box around an area to zoom into this area.
+3. Wheel Zoom: Selecting Wheel zoom you can zoom in an out by using the wheel on your mouse.
+4. Reset: Clicking this tool will reset the map view to the initial state.
+5. Hover: Initial selecting this allows for the tooltip to be dispayed. Clicking it again will disable the tooltip.
+
+To generate a new html ensure all Intallation requirements are met. To get the alt_fuel_stations csv file open
+
+<https://developer.nrel.gov/api/alt-fuel-stations/v1.csv?access=public&api_key=w30dJhEvcdCHxEHImCSL0GIAXETjLIJ41lgoN0Jr&cards_accepted=all&cng_fill_type=all&cng_psi=all&cng_vehicle_class=all&country=all&download=true&e85_has_blender_pump=false&ev_charging_level=all&ev_connector_type=all&ev_network=all&fuel_type=ELEC&hy_is_retail=true&limit=all&lng_vehicle_class=all&lpg_include_secondary=false&offset=0&owner_type=all&status=E&utf8_bom=true>
+
+You will need to remove the date in the file name or update the code in the Notebook to match the csv file.
+
+Run the Jupyter Notebook within the following file structure:
+
+C:.
+│   ev_charger_notebook.ipynb
+│
+├───data
+│       alt_fuel_stations.csv
+│       Final_data.xlsx
+│       zip2state.csv
+│
+└───shapefile2018
+        cb_2018_us_zcta510_500k.cpg
+        cb_2018_us_zcta510_500k.dbf
+        cb_2018_us_zcta510_500k.prj
+        cb_2018_us_zcta510_500k.shp
+        cb_2018_us_zcta510_500k.shp.ea.iso.xml
+        cb_2018_us_zcta510_500k.shp.iso.xml
+        cb_2018_us_zcta510_500k.shx
+
+After ev_chargers.html is created the instructions above can be used to inspect the output.
